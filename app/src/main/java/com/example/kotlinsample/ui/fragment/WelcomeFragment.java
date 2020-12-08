@@ -34,7 +34,7 @@ public class WelcomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(4);
         setupViewPager(viewPager);
     }
 
@@ -65,8 +65,9 @@ public class WelcomeFragment extends BaseFragment {
     private void setupViewPager(ViewPager viewPager) {
         mAdapter = new ViewPagerAdapter(homeActivity.getSupportFragmentManager());
         mAdapter.addFragment(StartFragment.newInstance(), "Videos");
-//        mAdapter.addFragment(Fragment2.newInstance(), "Second");
+        mAdapter.addFragment(new BlankFragment(), "Second");
         mAdapter.addFragment(new Fragment3(), "Third");
+        mAdapter.addFragment(new BlankFragment2(), "Fourth");
         viewPager.setAdapter(mAdapter);
         viewPager.setSaveFromParentEnabled(false);
         tabLayout.setupWithViewPager(viewPager);

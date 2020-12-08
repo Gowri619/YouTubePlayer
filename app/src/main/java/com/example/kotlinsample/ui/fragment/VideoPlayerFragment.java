@@ -2,6 +2,7 @@ package com.example.kotlinsample.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,12 +16,17 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 import butterknife.BindView;
 
-public class Fragment2 extends BaseFragment {
+public class VideoPlayerFragment extends BaseFragment {
 
     @BindView(R.id.youtube_player_view)
     YouTubePlayerView youTubePlayerView;
+    @BindView(R.id.video_title1)
+    TextView videoTitle1;
+    @BindView(R.id.video_title)
+    TextView videoTitle;
 
     public static String videoId = "";
+    public static String title = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,18 +37,21 @@ public class Fragment2 extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initYouTubePlayerView();
+        videoTitle.setText(title);
+        videoTitle1.setText(title);
     }
 
-    public static Fragment2 newInstance(VideosModel.Item videoItem) {
+    public static VideoPlayerFragment newInstance(VideosModel.Item videoItem) {
         if (videoItem != null) {
             videoId = videoItem.getId().getVideoId();
+            title = videoItem.getSnippet().getTitle();
         }
-        return new Fragment2();
+        return new VideoPlayerFragment();
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_2;
+        return R.layout.fragment_video_player;
     }
 
     @Override

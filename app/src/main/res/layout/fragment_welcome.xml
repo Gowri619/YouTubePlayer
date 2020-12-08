@@ -13,12 +13,12 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
+            android:background="@color/colorPrimary"
             app:tabGravity="fill"
-            app:tabIndicatorColor="#000000"
+            app:tabIndicatorColor="#FFF"
             app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#000000"
+            app:tabSelectedTextColor="#FFF"
             app:tabTextColor="#cccccc" />
 
     </com.google.android.material.appbar.AppBarLayout>

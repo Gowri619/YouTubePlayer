@@ -7,8 +7,6 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
 import com.example.kotlinsample.R;
 import com.example.kotlinsample.di.exception.UploadInProgressException;
 import com.example.kotlinsample.di.fragmentmanager.FragmentChannel;
@@ -16,7 +14,7 @@ import com.example.kotlinsample.model.VideosModel;
 import com.example.kotlinsample.presenter.HomePresenter;
 import com.example.kotlinsample.service.UploadService;
 import com.example.kotlinsample.sharedpreference.CacheRepository;
-import com.example.kotlinsample.ui.fragment.Fragment2;
+import com.example.kotlinsample.ui.fragment.VideoPlayerFragment;
 import com.example.kotlinsample.ui.fragment.StartFragment;
 import com.example.kotlinsample.ui.fragment.WelcomeFragment;
 
@@ -63,7 +61,7 @@ public class HomeActivity extends BaseActivity implements FragmentChannel, HomeP
 
     @Override
     public void showVideo(VideosModel.Item item) {
-        simpleFragmentManager.replaceFragment(Fragment2.newInstance(item));
+        simpleFragmentManager.replaceFragment(VideoPlayerFragment.newInstance(item));
     }
 
     @Override
