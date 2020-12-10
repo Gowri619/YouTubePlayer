@@ -28,7 +28,7 @@ import butterknife.BindView;
 public class StartFragment extends BaseFragment implements YouTubeAdapter.ItemSelectedListener {
 
     private static final String FRAGMENT_NAME = "Start";
-    String URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCJUP4L8ZMYGnpI4uc81Zn4Q&order=date&maxResults=25&key=AIzaSyA7j6oj3hIYZEe7kY1MRm8JyNpqYTwbGvQ";
+    private final String CHANNEL_ID = "UCJUP4L8ZMYGnpI4uc81Zn4Q";
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -50,7 +50,7 @@ public class StartFragment extends BaseFragment implements YouTubeAdapter.ItemSe
         recyclerView.setLayoutManager(manager);
         Animations.showAnimatedProgress(requireActivity(), null);
         videoList.clear();
-        String URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCJUP4L8ZMYGnpI4uc81Zn4Q&order=date&maxResults=25&key=AIzaSyA7j6oj3hIYZEe7kY1MRm8JyNpqYTwbGvQ";
+        String URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + CHANNEL_ID + "&order=date&maxResults=25&key=AIzaSyA7j6oj3hIYZEe7kY1MRm8JyNpqYTwbGvQ";
         getVideosList(URL);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -136,7 +136,7 @@ public class StartFragment extends BaseFragment implements YouTubeAdapter.ItemSe
     private void loadMore() {
         videoList.add(null);
         recyclerView.post(() -> youTubeAdapter.notifyItemInserted(videoList.size() - 1));
-        String URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&pageToken=" + nextPageToken + "&channelId=UCJUP4L8ZMYGnpI4uc81Zn4Q&order=date&maxResults=25&key=AIzaSyA7j6oj3hIYZEe7kY1MRm8JyNpqYTwbGvQ";
+        String URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&pageToken=" + nextPageToken + "&channelId=" + CHANNEL_ID + "&order=date&maxResults=25&key=AIzaSyA7j6oj3hIYZEe7kY1MRm8JyNpqYTwbGvQ";
         getVideosList(URL);
     }
 

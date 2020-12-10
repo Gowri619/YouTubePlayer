@@ -73,4 +73,7 @@ dependencies {
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    implementation 'com.google.firebase:firebase-database:19.5.1'
 }
+apply plugin: 'com.google.gms.google-services'

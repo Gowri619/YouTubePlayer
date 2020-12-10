@@ -65,7 +65,7 @@ public class WelcomeFragment extends BaseFragment {
     private void setupViewPager(ViewPager viewPager) {
         mAdapter = new ViewPagerAdapter(homeActivity.getSupportFragmentManager());
         mAdapter.addFragment(StartFragment.newInstance(), "Videos");
-        mAdapter.addFragment(new BlankFragment(), "Second");
+        mAdapter.addFragment(ReportFragment.newInstance(), "Reports");
         mAdapter.addFragment(new Fragment3(), "Third");
         mAdapter.addFragment(new BlankFragment2(), "Fourth");
         viewPager.setAdapter(mAdapter);
